@@ -1,0 +1,10 @@
+{
+    "project_name": "q2-my-plugin",
+    "project_slug": "q2_my_plugin",
+    "plugin_name": "my-plugin",
+    "author_name": "A QIIME 2 plugin developer",
+    "author_email": "qiime2-plugin-dev@example.com",
+    "project_url": "https://example.com",
+    "plugin_description": "A QIIME 2 plugin template",
+    "plugin_short_description": "Plugin template."
+}

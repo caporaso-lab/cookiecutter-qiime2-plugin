@@ -1,0 +1,36 @@
+{{ "{% set data = load_setup_py_data() %}" }}
+{{ "{% set version = data.get('version') or 'placehold' %}" }}
+
+package:
+  name: {{ cookiecutter.project_name }}
+  version: {{ "{{ version }}" }}
+
+source:
+  path: ../..
+
+build:
+  script: make install
+
+requirements:
+  host:
+    - python {{ "{{ python }}" }}
+    - setuptools
+
+  run:
+    - python {{ "{{ python }}" }}
+    - qiime2 {{ "{{ qiime2_epoch }}" }}
+    - q2-types {{ "{{ qiime2_epoch }}" }}
+
+test:
+  requires:
+    - pytest
+  imports:
+    - {{ cookiecutter.project_slug }}
+    - qiime2.plugins.{{ cookiecutter.plugin_name }}
+  commands:
+    - pytest {{ cookiecutter.project_slug }} --pyargs {{ cookiecutter.project_slug }}
+
+about:
+  home: {{ cookiecutter.project_url }}
+  license: BSD-3-Clause
+  license_family: BSD
