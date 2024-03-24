@@ -1,7 +1,7 @@
 {
     "package_name": "q2-my-plugin",
     "module_name": "{{ cookiecutter.package_name.replace('-', '_') }}",
-    "plugin_name": "{{ cookiecutter.package_name.replace('q2-', '') }}",
+    "plugin_name": "{{ cookiecutter.module_name.replace('q2-', '') }}",
     "author_name": "A QIIME 2 plugin developer",
     "author_email": "qiime2-plugin-dev@example.com",
     "project_url": "https://example.com",
