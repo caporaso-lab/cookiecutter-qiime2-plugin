@@ -13,7 +13,7 @@ import versioneer
 description = ("A template QIIME 2 plugin.")
 
 setup(
-    name="{{ cookiecutter.project_name }}",
+    name="{{ cookiecutter.package_name }}",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     license="BSD-3-Clause",
@@ -23,11 +23,11 @@ setup(
     description=description,
     url="{{ cookiecutter.project_url }}",
     entry_points={
-        "qiime2.plugins": ["{{ cookiecutter.project_name }}={{ cookiecutter.project_slug }}.plugin_setup:plugin"]
+        "qiime2.plugins": ["{{ cookiecutter.package_name }}={{ cookiecutter.module_name }}.plugin_setup:plugin"]
     },
     package_data={
-        "{{ cookiecutter.project_slug }}": ["citations.bib"],
-        "{{ cookiecutter.project_slug }}.tests": ["data/*"],
+        "{{ cookiecutter.module_name }}": ["citations.bib"],
+        "{{ cookiecutter.module_name }}.tests": ["data/*"],
     },
     zip_safe=False,
 )

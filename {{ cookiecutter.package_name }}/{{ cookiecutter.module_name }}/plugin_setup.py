@@ -8,16 +8,16 @@
 
 from qiime2.plugin import Citations, Plugin
 from q2_types.feature_table import FeatureTable, Frequency
-from {{ cookiecutter.project_slug }} import __version__
-from {{ cookiecutter.project_slug }}._methods import duplicate_table
+from {{ cookiecutter.module_name }} import __version__
+from {{ cookiecutter.module_name }}._methods import duplicate_table
 
-citations = Citations.load("citations.bib", package="{{ cookiecutter.project_slug }}")
+citations = Citations.load("citations.bib", package="{{ cookiecutter.module_name }}")
 
 plugin = Plugin(
     name="{{ cookiecutter.plugin_name }}",
     version=__version__,
     website="{{ cookiecutter.project_url}}",
-    package="{{ cookiecutter.project_slug }}",
+    package="{{ cookiecutter.module_name }}",
     description="{{ cookiecutter.plugin_description }}",
     short_description="{{ cookiecutter.plugin_short_description }}",
     citations=[citations['Caporaso-Bolyen-2024']]

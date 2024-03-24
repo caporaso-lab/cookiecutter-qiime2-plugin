@@ -12,7 +12,7 @@ test: all
 	py.test
 
 test-cov: all
-	py.test --cov={{ cookiecutter.project_slug }}
+	py.test --cov={{ cookiecutter.module_name }}
 
 install: all
 	$(PYTHON) setup.py install
