@@ -2,7 +2,7 @@
 {{ "{% set version = data.get('version') or 'placehold' %}" }}
 
 package:
-  name: {{ cookiecutter.project_name }}
+  name: {{ cookiecutter.package_name }}
   version: {{ "{{ version }}" }}
 
 source:
@@ -25,10 +25,10 @@ test:
   requires:
     - pytest
   imports:
-    - {{ cookiecutter.project_slug }}
+    - {{ cookiecutter.module_name }}
     - qiime2.plugins.{{ cookiecutter.plugin_name }}
   commands:
-    - pytest {{ cookiecutter.project_slug }} --pyargs {{ cookiecutter.project_slug }}
+    - pytest {{ cookiecutter.module_name }} --pyargs {{ cookiecutter.module_name }}
 
 about:
   home: {{ cookiecutter.project_url }}
