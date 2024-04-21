@@ -23,7 +23,10 @@ setup(
     description=description,
     url="{{ cookiecutter.project_url }}",
     entry_points={
-        "qiime2.plugins": ["{{ cookiecutter.package_name }}={{ cookiecutter.module_name }}.plugin_setup:plugin"]
+        "qiime2.plugins": [
+            "{{ cookiecutter.module_name }}="
+            "{{ cookiecutter.module_name }}"
+            ".plugin_setup:plugin"]
     },
     package_data={
         "{{ cookiecutter.module_name }}": ["citations.bib"],
