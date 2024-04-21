@@ -26,7 +26,7 @@ test:
     - pytest
   imports:
     - {{ cookiecutter.module_name }}
-    - qiime2.plugins.{{ cookiecutter.plugin_name }}
+    - qiime2.plugins.{{ cookiecutter.plugin_name.replace('-', '_') }}
   commands:
     - pytest {{ cookiecutter.module_name }} --pyargs {{ cookiecutter.module_name }}
 
