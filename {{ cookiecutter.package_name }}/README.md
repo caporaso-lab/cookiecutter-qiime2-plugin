@@ -2,14 +2,24 @@
 
 A [QIIME 2](https://qiime2.org) plugin [developed](https://develop.qiime2.org) by {{ cookiecutter.author_name }} ({{ cookiecutter.author_email }}). 🔌
 
-## Install the most recent development version of `{{ cookiecutter.package_name }}`
+## Installation instructions
 
 **The following instructions are intended to be a starting point** and should be replaced when `{{ cookiecutter.package_name }}` is ready to share with others.
 They will enable you to install the most recent *development* version of `{{ cookiecutter.package_name }}`.
 Remember that *release* versions should be used for all "real" work (i.e., where you're not testing or prototyping) - if there aren't instructions for installing a release version of this plugin, it is probably not yet intended for use in practice.
 
-First, install a `{{ cookiecutter.target_distro }}` development environment, [as described here in *Developing with QIIME 2*](https://develop.qiime2.org/en/latest/plugins/how-to-guides/set-up-development-environment.html).
-Activate that environment.
+### Install Prerequisites
+
+[Miniconda](https://conda.io/miniconda.html) provides the `conda` environment and package manager, and is currently the only supported way to install QIIME 2.
+Follow the instructions for downloading and installing Miniconda.
+
+After installing Miniconda and opening a new terminal, make sure you're running the latest version of `conda`:
+
+```bash
+conda update conda
+```
+
+###  Install development version of `{{ cookiecutter.package_name }}`
 
 Next, you need to get into the top-level `{{ cookiecutter.package_name }}` directory.
 If you already have this (e.g., because you just created the plugin), this may be as simple as running `cd {{ cookiecutter.package_name }}`.
@@ -17,6 +27,21 @@ If not, you'll need the `{{ cookiecutter.package_name }}` directory on your comp
 How you do that will differ based on how the package is shared, and ideally the developer will update these instructions to be more specific (remember, these instructions are intended to be a starting point).
 For example, if it's maintained in a GitHub repository, you can achieve this by [cloning the repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository).
 Once you have the directory on your computer, change (`cd`) into it.
+
+If you're in a conda environment, deactivate it by running `conda deactivate`.
+
+
+Then, run:
+
+```shell
+conda env create -n {{ cookiecutter.package_name }}-dev --file ./environments/{{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}.yml
+```
+
+After this completes, activate the new environment you created by running:
+
+```shell
+conda activate {{ cookiecutter.package_name }}-dev
+```
 
 Finally, run:
 

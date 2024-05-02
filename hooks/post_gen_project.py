@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import subprocess
 
 def _check_git_installed():
