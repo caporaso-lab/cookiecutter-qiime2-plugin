@@ -1,0 +1,68 @@
+name: Test build
+
+on:
+  pull_request:
+    branches: ["main"]
+  push:
+    branches: ["main"]
+
+jobs:
+  build-q2-hello-world:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-13]
+
+    steps:
+    - name: checkout source
+      uses: actions/checkout@v4
+
+    - name: set up python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.11
+
+    - name: install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -q cookiecutter
+        pip install -q flake8
+        pip install -q https://github.com/qiime2/q2lint/archive/master.zip
+
+    - name: build plugin from default template
+      run: |
+        git config --global user.email "q2dev@example.com"
+        git config --global user.name "A QIIME 2 Plugin Developer"
+        cookiecutter . --no-input
+
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v3
+      with:
+        # to-do: remove hard-coding of version
+        activate-environment: q2-hello-world-qiime2-tiny-2024.2
+        environment-file: q2-hello-world/environments/q2-hello-world-qiime2-tiny-2024.2.yml
+        auto-activate-base: false
+
+    - name: Install plugin
+      shell: bash -l {0}
+      run: |
+        cd q2-hello-world
+        make install
+
+    - name: Call --help on plugin
+      shell: bash -l {0}
+      run: |
+        qiime hello-world --help
+
+    - name: Test plugin
+      shell: bash -l {0}
+      run: |
+        cd q2-hello-world
+        make test
+
+    - name: Lint plugin
+      shell: bash -l {0}
+      run: |
+        cd q2-hello-world
+        flake8
+        q2lint
