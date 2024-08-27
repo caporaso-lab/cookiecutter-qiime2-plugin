@@ -1,0 +1,32 @@
+[build-system]
+requires = [
+    'setuptools>=64',
+    'versioneer[toml]==0.29',
+    'wheel'
+]
+build-backend = 'setuptools.build_meta'
+
+[project]
+name = '{{ cookiecutter.package_name }}',
+description = 'A template QIIME 2 plugin.',
+authors = [
+    {name = '{{ cookiecutter.author_name }}',
+     email = '{{ cookiecutter.author_email }}'}
+],
+readme = 'README.md',
+license = {file = 'LICENSE'},
+dynamic = ['version']
+
+[tool.versioneer]
+VCS = 'git'
+style = 'pep440'
+versionfile_source = '"{{ cookiecutter.module_name }}"/_version.py'
+versionfile_build = '"{{ cookiecutter.module_name }}"/_version.py'
+tag_prefix = ''
+parentdir_prefix = '"{{ cookiecutter.package_name }}"-'
+
+[project.urls]
+Repository = '{{ cookiecutter.project_url }}'
+
+[project.entry-points.'qiime2.plugins']
+{{ cookiecutter.package_name }} = '"{{ cookiecutter.module_name }}".plugin_setup:plugin'

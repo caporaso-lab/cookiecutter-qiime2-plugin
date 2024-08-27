@@ -1,4 +1,4 @@
-.PHONY: all lint test install dev clean distclean
+.PHONY: all lint test dev clean distclean
 
 PYTHON ?= python
 
@@ -10,9 +10,6 @@ lint:
 
 test: all
 	py.test
-
-install: all
-	pip install .
 
 dev: all
 	pip install -e .
