@@ -23,7 +23,7 @@ Repository = '{{ cookiecutter.project_url }}'
 {{ cookiecutter.package_name }} = '{{ cookiecutter.module_name }}.plugin_setup:plugin'
 
 [tool.setuptools.packages.find]
-include = ['{{ cookiecutter.module_name }}*']
+exclude = ['environments*']
 
 [tool.versioneer]
 VCS = 'git'
