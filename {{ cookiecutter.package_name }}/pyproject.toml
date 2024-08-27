@@ -19,8 +19,10 @@ dynamic = ['version']
 [project.urls]
 Repository = '{{ cookiecutter.project_url }}'
 
-[project.entry-points.'qiime2.plugins']
-{{ cookiecutter.package_name }} = '{{ cookiecutter.module_name }}.plugin_setup:plugin'
+[tool.setuptools]
+entry-points = {
+    'qiime2.plugins' = ['{{ cookiecutter.package_name }}={{ cookiecutter.module_name }}.plugin_setup:plugin']
+}
 
 [tool.setuptools.packages.find]
 include = ['{{ cookiecutter.package_name }}*']
