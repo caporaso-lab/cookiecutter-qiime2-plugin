@@ -22,13 +22,10 @@ Repository = '{{ cookiecutter.project_url }}'
 [project.entry-points.'qiime2.plugins']
 {{ cookiecutter.package_name }} = '{{ cookiecutter.module_name }}.plugin_setup:plugin'
 
-[tool.setuptools.packages.find]
-include = ['*']
-
 [tool.versioneer]
 VCS = 'git'
 style = 'pep440'
-versionfile_source = '"{{ cookiecutter.module_name }}"/_version.py'
-versionfile_build = '"{{ cookiecutter.module_name }}"/_version.py'
+versionfile_source = '{{ cookiecutter.module_name }}/_version.py'
+versionfile_build = '{{ cookiecutter.module_name }}/_version.py'
 tag_prefix = ''
-parentdir_prefix = '"{{ cookiecutter.package_name }}"-'
+parentdir_prefix = '{{ cookiecutter.package_name }}-'
