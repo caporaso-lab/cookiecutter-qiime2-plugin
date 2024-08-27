@@ -16,6 +16,15 @@ readme = 'README.md'
 license = {file = 'LICENSE'}
 dynamic = ['version']
 
+[project.urls]
+Repository = '{{ cookiecutter.project_url }}'
+
+[project.entry-points.'qiime2.plugins']
+{{ cookiecutter.package_name }} = '{{ cookiecutter.module_name }}.plugin_setup:plugin'
+
+[tool.setuptools.packages.find]
+include = ['{{ cookiecutter.module_name }}*']
+
 [tool.versioneer]
 VCS = 'git'
 style = 'pep440'
@@ -23,9 +32,3 @@ versionfile_source = '"{{ cookiecutter.module_name }}"/_version.py'
 versionfile_build = '"{{ cookiecutter.module_name }}"/_version.py'
 tag_prefix = ''
 parentdir_prefix = '"{{ cookiecutter.package_name }}"-'
-
-[project.urls]
-Repository = '{{ cookiecutter.project_url }}'
-
-[project.entry-points.'qiime2.plugins']
-{{ cookiecutter.package_name }} = '{{ cookiecutter.module_name }}.plugin_setup:plugin'
