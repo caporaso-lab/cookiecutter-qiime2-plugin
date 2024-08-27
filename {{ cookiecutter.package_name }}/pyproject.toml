@@ -28,4 +28,4 @@ parentdir_prefix = '"{{ cookiecutter.package_name }}"-'
 Repository = '{{ cookiecutter.project_url }}'
 
 [project.entry-points.'qiime2.plugins']
-{{ cookiecutter.package_name }} = '"{{ cookiecutter.module_name }}".plugin_setup:plugin'
+{{ cookiecutter.package_name }} = '{{ cookiecutter.module_name }}.plugin_setup:plugin'
