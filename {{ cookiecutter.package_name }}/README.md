@@ -83,7 +83,7 @@ Have fun! 😎
 
 ## About
 
-The `{{ cookiecutter.package_name }}` Python package was [created from template](https://develop.qiime2.org/en/latest/plugins/tutorials/create-from-template.html).
+The `{{ cookiecutter.package_name }}` Python package was [created from a template](https://develop.qiime2.org/en/latest/plugins/tutorials/create-from-template.html).
 To learn more about `{{ cookiecutter.package_name }}`, refer to the [project website]({{ cookiecutter.project_url }}).
 To learn how to use QIIME 2, refer to the [QIIME 2 User Documentation](https://docs.qiime2.org).
 To learn QIIME 2 plugin development, refer to [*Developing with QIIME 2*](https://develop.qiime2.org).
