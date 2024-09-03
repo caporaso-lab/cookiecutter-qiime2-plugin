@@ -21,7 +21,7 @@ plugin = Plugin(
     description="{{ cookiecutter.plugin_description }}",
     short_description="{{ cookiecutter.plugin_short_description }}",
     # The plugin-level citation of 'Caporaso-Bolyen-2024' is provided as
-    # an example. You can replace this with citations to other references 
+    # an example. You can replace this with citations to other references
     # in citations.bib.
     citations=[citations['Caporaso-Bolyen-2024']]
 )
