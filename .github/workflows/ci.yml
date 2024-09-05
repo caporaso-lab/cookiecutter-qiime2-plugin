@@ -47,7 +47,7 @@ jobs:
       shell: bash -l {0}
       run: |
         cd q2-hello-world
-        make install
+        python -m pip install -v .
 
     - name: Call --help on plugin
       shell: bash -l {0}
