@@ -10,7 +10,9 @@ from setuptools import find_packages, setup
 
 import versioneer
 
-description = ("A template QIIME 2 plugin.")
+description = (
+    "{{ cookiecutter.plugin_short_description }}"
+)
 
 setup(
     name="{{ cookiecutter.package_name }}",
