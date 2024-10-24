@@ -20,7 +20,7 @@ jobs:
       uses: conda-incubator/setup-miniconda@v3
       with:
         activate-environment: {{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}
-        environment-file: environments/{{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}.yml
+        environment-file: environment-files/{{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}.yml
         auto-activate-base: false
 
     - name: Install plugin
