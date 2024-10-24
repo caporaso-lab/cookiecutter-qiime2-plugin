@@ -40,7 +40,7 @@ jobs:
       with:
         # to-do: remove hard-coding of version
         activate-environment: q2-hello-world-qiime2-tiny-2024.5
-        environment-file: q2-hello-world/environments/q2-hello-world-qiime2-tiny-2024.5.yml
+        environment-file: q2-hello-world/environment-files/q2-hello-world-qiime2-tiny-2024.5.yml
         auto-activate-base: false
 
     - name: Install plugin

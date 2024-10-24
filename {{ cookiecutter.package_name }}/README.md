@@ -34,7 +34,7 @@ If you're in a conda environment, deactivate it by running `conda deactivate`.
 Then, run:
 
 ```shell
-conda env create -n {{ cookiecutter.package_name }}-dev --file ./environments/{{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}.yml
+conda env create -n {{ cookiecutter.package_name }}-dev --file ./environment-files/{{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}.yml
 ```
 
 After this completes, activate the new environment you created by running:
