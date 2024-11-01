@@ -1,13 +1,16 @@
+# flake8: noqa
 # ----------------------------------------------------------------------------
-# Copyright (c) 2024, {{ cookiecutter.author_name }}.
+# Copyright (c) 2024, {{ author_name }}.
 #
 # Distributed under the terms of the Modified BSD License.
 #
 # The full license is in the file LICENSE, distributed with this software.
 # ----------------------------------------------------------------------------
 
-import pandas as pd
+from ._version import get_versions
 
+__version__ = get_versions()["version"]
+del get_versions
 
-def duplicate_table(table: pd.DataFrame) -> pd.DataFrame:
-    return table
+from . import _version
+__version__ = _version.get_versions()['version']

@@ -1,0 +1,2 @@
+include versioneer.py
+include {{ module_name }}/_version.py

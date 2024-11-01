@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Copyright (c) 2024, {{ cookiecutter.author_name }}.
+# Copyright (c) 2024, {{ author_name }}.
 #
 # Distributed under the terms of the Modified BSD License.
 #
@@ -11,28 +11,28 @@ from setuptools import find_packages, setup
 import versioneer
 
 description = (
-    "{{ cookiecutter.plugin_short_description }}"
+    "{{ plugin_short_description }}"
 )
 
 setup(
-    name="{{ cookiecutter.package_name }}",
+    name="{{ package_name }}",
     version=versioneer.get_version(),
     cmdclass=versioneer.get_cmdclass(),
     license="BSD-3-Clause",
     packages=find_packages(),
-    author="{{ cookiecutter.author_name }}",
-    author_email="{{ cookiecutter.author_email }}",
+    author="{{ author_name }}",
+    author_email="{{ author_email }}",
     description=description,
-    url="{{ cookiecutter.project_url }}",
+    url="{{ project_url }}",
     entry_points={
         "qiime2.plugins": [
-            "{{ cookiecutter.module_name }}="
-            "{{ cookiecutter.module_name }}"
+            "{{ package_name }}="
+            "{{ module_name }}"
             ".plugin_setup:plugin"]
     },
     package_data={
-        "{{ cookiecutter.module_name }}": ["citations.bib"],
-        "{{ cookiecutter.module_name }}.tests": ["data/*"],
+        "{{ module_name }}": ["citations.bib"],
+        "{{ module_name }}.tests": ["data/*"],
     },
     zip_safe=False,
 )

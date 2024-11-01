@@ -1,6 +1,6 @@
 # flake8: noqa
 # ----------------------------------------------------------------------------
-# Copyright (c) 2024, {{ cookiecutter.author_name }}.
+# Copyright (c) 2024, {{ author_name }}.
 #
 # Distributed under the terms of the Modified BSD License.
 #

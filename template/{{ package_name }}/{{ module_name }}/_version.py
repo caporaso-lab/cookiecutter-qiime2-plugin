@@ -52,8 +52,8 @@ def get_config() -> VersioneerConfig:
     cfg.VCS = "git"
     cfg.style = "pep440"
     cfg.tag_prefix = ""
-    cfg.parentdir_prefix = "{{ cookiecutter.package_name }}-"
-    cfg.versionfile_source = "{{ cookiecutter.module_name }}/_version.py"
+    cfg.parentdir_prefix = "{{ package_name }}-"
+    cfg.versionfile_source = "{{ module_name }}/_version.py"
     cfg.verbose = False
     return cfg
 
