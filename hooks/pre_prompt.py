@@ -15,7 +15,8 @@ with urllib.request.urlopen(url) as response:
 stable_epoch = distributions_data['released_epoch']
 latest_epoch = distributions_data['active_epoch']
 
-with Path("cookiecutter.json") as config:
+config = Path("cookiecutter.json")
+if config.is_file():
     data = json.loads(config.read_text())
     data["target_epoch"] = [stable_epoch, latest_epoch]
     data["__prompts__"]["target_epoch"] = \
