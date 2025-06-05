@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Copyright (c) 2024, {{ cookiecutter.author_name }}.
+# Copyright (c) 2024, {{ author_name }}.
 #
 # Distributed under the terms of the Modified BSD License.
 #
@@ -13,11 +13,11 @@ from qiime2.plugin.testing import TestPluginBase
 from qiime2.plugin.util import transform
 from q2_types.feature_table import BIOMV100Format
 
-from {{ cookiecutter.module_name }}._methods import duplicate_table
+from {{ module_name }}._methods import duplicate_table
 
 
 class DuplicateTableTests(TestPluginBase):
-    package = '{{ cookiecutter.module_name }}.tests'
+    package = '{{ module_name }}.tests'
 
     def test_simple1(self):
         in_table = pd.DataFrame(

@@ -1,9 +1,9 @@
 channels:
-- https://packages.qiime2.org/qiime2/{{ cookiecutter.target_epoch }}/{{ cookiecutter.target_distro }}/passed
+- https://packages.qiime2.org/qiime2/{{ target_epoch }}/{{ target_distro }}/passed
 - conda-forge
 - bioconda
 dependencies:
-  - qiime2-{{ cookiecutter.target_distro }}
+  - qiime2-{{ target_distro }}
   # Note 1: Add any additional conda dependencies here.
   - pip
   - pip:
@@ -13,4 +13,4 @@ dependencies:
   # the following lines to replace REPO-OWNER with the user or organization
   # name that owns the repository, your installation commands can be updated to
   # install from this file without additional steps.
-  #   - "{{ cookiecutter.package_name }} @ git+https://github.com/REPO-OWNER/{{ cookiecutter.package_name }}.git"
+  #   - "{{ package_name }} @ git+https://github.com/REPO-OWNER/{{ package_name }}.git"
