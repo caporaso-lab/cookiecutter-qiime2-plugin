@@ -31,10 +31,10 @@ target_distro:
   default: tiny
   choices: [tiny, amplicon, metagenome]
   help: Target distribution (if you're not sure, stick with the default).
-dev_target:
-  default: stable
-  choices: [stable, latest]
-  help: Do you want to test against the current release (stable) or the upcoming release (latest).
+# dev_target:
+#   default: stable
+#   choices: [stable, latest]
+#   help: Do you want to test against the current release (stable) or the upcoming release (latest).
 license:
   default: skip-license
   choices: [BSD-3-Clause, MIT, Apache-2.0, skip-license]

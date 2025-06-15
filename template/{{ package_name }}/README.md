@@ -34,7 +34,7 @@ If you're in a conda environment, deactivate it by running `conda deactivate`.
 Then, run:
 
 ```shell
-conda env create -n {{ package_name }}-dev --file ./environment-files/{{ package_name }}-qiime2-{{ target_distro }}-{{ target_epoch }}.yml
+conda env create -n {{ package_name }}-dev --file ./environment-files/{{ package_name }}-qiime2-{{ target_distro }}-dev.yml
 ```
 
 After this completes, activate the new environment you created by running:
