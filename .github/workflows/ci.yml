@@ -38,11 +38,10 @@ jobs:
         copier copy --defaults --trust . .
 
     - name: Set up Conda
-      uses: conda-incubator/setup-miniconda@v3
+      uses: qiime2-cutlery/setup-miniconda@v3
       with:
-        # to-do: remove hard-coding of version
-        activate-environment: q2-hello-world-qiime2-tiny-2025.4
-        environment-file: q2-hello-world/environment-files/q2-hello-world-qiime2-tiny-2025.4.yml
+        activate-environment: q2-hello-world-qiime2-tiny-dev
+        environment-file: q2-hello-world/environment-files/q2-hello-world-qiime2-tiny-dev.yml
         auto-activate-base: false
 
     - name: Install plugin
