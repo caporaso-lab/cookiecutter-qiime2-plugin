@@ -16,15 +16,15 @@ jobs:
       - name: Determine default branch
         id: default-branch
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ '{{' }} github.token {{ '}}' }}
         run: |
-          echo "DEFAULT_BRANCH=${{ github.event.repository.default_branch }}" >> $GITHUB_OUTPUT
+          echo "DEFAULT_BRANCH=${{ '{{' }} github.event.repository.default_branch {{ '}}' }}" >> $GITHUB_OUTPUT
 
       - name: Get release info
         id: get-release-name
         run: |
-          echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_ENV
-          echo "RELEASE_TAG=${{ github.event.release.tag_name }}" >> $GITHUB_OUTPUT
+          echo "RELEASE_TAG=${{ '{{' }} github.event.release.tag_name {{ '}}' }}" >> $GITHUB_ENV
+          echo "RELEASE_TAG=${{ '{{' }} github.event.release.tag_name {{ '}}' }}" >> $GITHUB_OUTPUT
 
       - name: Get released_epoch from data.yaml
         run: |
@@ -138,13 +138,13 @@ jobs:
       - name: Create pull request with updated release env file
         uses: qiime2-cutlery/create-pull-request@v5
         env:
-          RELEASE_TAG: ${{ steps.get-release-name.outputs.RELEASE_TAG }}
-          DEFAULT_BRANCH: ${{ steps.default-branch.outputs.DEFAULT_BRANCH }}
+          RELEASE_TAG: ${{ '{{' }} steps.get-release-name.outputs.RELEASE_TAG {{ '}}' }}
+          DEFAULT_BRANCH: ${{ '{{' }} steps.default-branch.outputs.DEFAULT_BRANCH {{ '}}' }}
         with:
-          token: ${{ github.token }}
-          branch: automated/release-${{ env.RELEASE_TAG }}-env-file-updates
-          base: ${{ env.DEFAULT_BRANCH }}
-          title: "[${{ env.RELEASE_TAG }}] Automated updates to release environment file"
+          token: ${{ '{{' }} github.token {{ '}}' }}
+          branch: automated/release-${{ '{{' }} env.RELEASE_TAG {{ '}}' }}-env-file-updates
+          base: ${{ '{{' }} env.DEFAULT_BRANCH {{ '}}' }}
+          title: "[${{ '{{' }} env.RELEASE_TAG {{ '}}' }}] Automated updates to release environment file"
           body: |
             <details>
             <summary><i>What does this pull request do?</i></summary>
@@ -172,7 +172,7 @@ jobs:
           author: 'q2d2 <q2d2.noreply@gmail.com>'
           committer: 'q2d2 <q2d2.noreply@gmail.com>'
           commit-message: |
-            automated update of release environment file for '${{ env.RELEASE_TAG }}'
+            automated update of release environment file for "${{ '{{' }} env.RELEASE_TAG {{ '}}' }}"
 
       - name: Set up conda
         uses: qiime2-cutlery/setup-miniconda@v3
@@ -183,8 +183,8 @@ jobs:
       - name: Try installing new release env file
         shell: bash
         run: |
-          git checkout automated/release-${{ env.RELEASE_TAG }}-env-file-updates
-          ENV_PATH='environment-files/${{ env.PACKAGE_NAME }}-qiime2-${{ env.TARGET_DISTRO }}-${{ env.RELEASED_EPOCH }}-release-${{ env.RELEASE_TAG }}.yml'
+          git checkout automated/release-${{ '{{' }} env.RELEASE_TAG {{ '}}' }}-env-file-updates
+          ENV_PATH="environment-files/${{ '{{' }} env.PACKAGE_NAME {{ '}}' }}-qiime2-${{ '{{' }} env.TARGET_DISTRO {{ '}}' }}-${{ '{{' }} env.RELEASED_EPOCH {{ '}}' }}-release-${{ '{{' }} env.RELEASE_TAG {{ '}}' }}.yml"
           conda env create -n test-release-env -f $ENV_PATH
 
       - name: Activate and check version info
@@ -203,9 +203,9 @@ jobs:
       - name: Add comment to PR with env install result
         if: always()
         env:
-          GH_TOKEN: ${{ github.token }}
-          JOB_URL: ${{ steps.get-job-id.outputs.html_url }}
-          PR_NUMBER: ${{ github.event.pull_request.number }}
+          GH_TOKEN: ${{ '{{' }} github.token {{ '}}' }}
+          JOB_URL: ${{ '{{' }} steps.get-job-id.outputs.html_url {{ '}}' }}
+          PR_NUMBER: ${{ '{{' }} github.event.pull_request.number {{ '}}' }}
         run: |
           if conda env list | grep -q test-release-env; then
             gh pr comment "$PR_NUMBER" \

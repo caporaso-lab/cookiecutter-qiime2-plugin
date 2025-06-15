@@ -45,7 +45,7 @@ _tasks:
       git add . &&
       git commit \
         -m "initial commit" \
-        -m "Created from https://github.com/caporaso-lab/cookiecutter-qiime2-plugin." \
+        -m "Created from https://github.com/caporaso-lab/plugin-template." \
         -m "See https://develop.qiime2.org to learn more."
     when: "{{ has_git and first_run }}"
 _subdirectory: template/
