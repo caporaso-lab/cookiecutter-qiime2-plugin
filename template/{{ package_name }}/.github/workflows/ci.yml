@@ -7,7 +7,7 @@ on:
     branches: ["main"]
 
 jobs:
-  build-and-test-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch.replace('.', '-') }}:
+  build-and-test-qiime2-{{ target_distro }}-dev:
     runs-on: ${{ '{{' }} matrix.os {{ '}}' }}
     strategy:
       matrix:
@@ -19,8 +19,8 @@ jobs:
     - name: Set up Conda
       uses: conda-incubator/setup-miniconda@v3
       with:
-        activate-environment: {{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}
-        environment-file: environment-files/{{ cookiecutter.package_name }}-qiime2-{{ cookiecutter.target_distro }}-{{ cookiecutter.target_epoch }}.yml
+        activate-environment: {{ package_name }}-qiime2-{{ target_distro }}-dev
+        environment-file: environment-files/{{ package_name }}-qiime2-{{ target_distro }}-dev.yml
         auto-activate-base: false
 
     - name: Install plugin

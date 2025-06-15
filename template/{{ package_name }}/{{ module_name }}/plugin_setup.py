@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Copyright (c) 2024, {{ cookiecutter.author_name }}.
+# Copyright (c) 2024, {{ author_name }}.
 #
 # Distributed under the terms of the Modified BSD License.
 #
@@ -8,18 +8,18 @@
 
 from qiime2.plugin import Citations, Plugin
 from q2_types.feature_table import FeatureTable, Frequency
-from {{ cookiecutter.module_name }} import __version__
-from {{ cookiecutter.module_name }}._methods import duplicate_table
+from {{ module_name }} import __version__
+from {{ module_name }}._methods import duplicate_table
 
-citations = Citations.load("citations.bib", package="{{ cookiecutter.module_name }}")
+citations = Citations.load("citations.bib", package="{{ module_name }}")
 
 plugin = Plugin(
-    name="{{ cookiecutter.plugin_name }}",
+    name="{{ plugin_name }}",
     version=__version__,
-    website="{{ cookiecutter.project_url}}",
-    package="{{ cookiecutter.module_name }}",
-    description="{{ cookiecutter.plugin_description }}",
-    short_description="{{ cookiecutter.plugin_short_description }}",
+    website="{{ project_url}}",
+    package="{{ module_name }}",
+    description="{{ plugin_description }}",
+    short_description="{{ plugin_short_description }}",
     # The plugin-level citation of 'Caporaso-Bolyen-2024' is provided as
     # an example. You can replace this with citations to other references
     # in citations.bib.
