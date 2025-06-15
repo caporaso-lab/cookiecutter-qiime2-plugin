@@ -27,17 +27,7 @@ class ContextUpdater(ContextHook):
         if context["_copier_phase"] == "prompt":
             return {}
 
-        # stable_epoch = distributions_data['released_epoch']
-        # latest_epoch = distributions_data['active_epoch']
-
-        # target = context["dev_target"]
-        # if target == 'stable':
-        #     target_epoch = stable_epoch
-        # else:
-        #     target_epoch = latest_epoch
-
         update = {
-            # "target_epoch": target_epoch,
             "has_git": _check_git_installed(),
             "first_run": not (context['_copier_conf']['dst_path']
                               / context['package_name'] / '.git/').exists()
