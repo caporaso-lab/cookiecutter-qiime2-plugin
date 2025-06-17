@@ -35,7 +35,7 @@ jobs:
       run: |
         git config --global user.email "q2dev@example.com"
         git config --global user.name "A QIIME 2 Plugin Developer"
-        copier copy --defaults . .
+        copier copy --defaults --trust . .
 
     - name: Set up Conda
       uses: qiime2-cutlery/setup-miniconda@v3
