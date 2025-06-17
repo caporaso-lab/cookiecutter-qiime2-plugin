@@ -27,9 +27,6 @@ method = "git-archive"
 describe-subst = "$Format:%(describe)$"
 default-tag = "0.0.1"
 
-[tool.versioningit.default-version]
-"0.0.dev0"
-
 [tool.versioningit.next-version]
 method = "minor"
 
