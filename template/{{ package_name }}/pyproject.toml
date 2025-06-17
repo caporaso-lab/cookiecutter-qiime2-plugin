@@ -38,6 +38,9 @@ distance-dirty = "{base_version}+{distance}.{vcs}{rev}.dirty"
 [tool.versioningit.write]
 file = "{{ package_name }}/_version.py"
 
+[tool.versioningit]
+default-version = "1955-11-05"
+
 [tool.setuptools]
 include-package-data = true
 
