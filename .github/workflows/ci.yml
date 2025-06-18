@@ -33,9 +33,7 @@ jobs:
 
     - name: build plugin from default template
       run: |
-        git config --global user.email "q2dev@example.com"
-        git config --global user.name "A QIIME 2 Plugin Developer"
-        copier copy --defaults --trust . .
+        copier copy --defaults . .
 
     - name: Set up Conda
       uses: qiime2-cutlery/setup-miniconda@v3
