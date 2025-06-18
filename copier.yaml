@@ -39,5 +39,3 @@ license:
 # Config
 _templates_suffix: ""
 _subdirectory: template/
-_jinja_extensions:
-    - copier_templates_extensions.TemplateExtensionLoader
