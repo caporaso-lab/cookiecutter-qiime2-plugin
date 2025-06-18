@@ -38,6 +38,17 @@ license:
 
 # Config
 _templates_suffix: ""
+_tasks:
+  - command: >-
+      cd "{{ package_name }}" &&
+      git init &&
+      git add . &&
+      git commit \
+        -m "initial commit" \
+        -m "Created from https://github.com/caporaso-lab/plugin-template." \
+        -m "See https://develop.qiime2.org to learn more."
+    when: "{{ has_git and first_run }}"
 _subdirectory: template/
 _jinja_extensions:
     - copier_templates_extensions.TemplateExtensionLoader
+    - extensions/context.py:ContextUpdater
