@@ -1,0 +1,41 @@
+# Prompts
+package_name:
+  default: q2-hello-world
+  help: Package name (e.g., used as the top-level directory name)
+module_name:
+  default: "{{ package_name.replace('-', '_') }}"
+  help: Module name (must be a valid Python identifier)
+  validator: >-
+    {% if not module_name.isidentifier()  %}
+    The module name must be a valid Python identifier.
+    {% endif %}
+plugin_name:
+  default: "{{ package_name.removeprefix('q2-') }}"
+  help: Plugin name (often a shortened version of the package name)
+author_name:
+  default: A QIIME 2 Plugin Developer
+  help: Author name
+author_email:
+  default: q2-dev@example.com
+  help: Author email
+project_url:
+  default: https://example.com
+  help: Main plugin website
+plugin_description:
+  default: A QIIME 2 plugin template.
+  help: Longer description, shown when information is requested on plugin
+plugin_short_description:
+  default: Plugin template.
+  help: Shorter description, shown when plugin is presented in a list
+target_distro:
+  default: tiny
+  choices: [tiny, amplicon, metagenome]
+  help: Target distribution (if you're not sure, stick with the default).
+license:
+  default: skip-license
+  choices: [BSD-3-Clause, MIT, Apache-2.0, skip-license]
+  help: Some common open source licenses. Use "skip-license" to use a custom license (or retain all rights).
+
+# Config
+_templates_suffix: ""
+_subdirectory: template/
